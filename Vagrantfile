@@ -17,11 +17,13 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu1" do |ubuntu1|
     ubuntu1.vm.hostname = "ubuntu1"
     ubuntu1.vm.network "private_network", ip: "192.168.56.101"
+    ubuntu1.vm.network "forwarded_port", guest: 5901, host: 5901
   end
 
   # specific for ubuntu2
   config.vm.define "ubuntu2" do |ubuntu2|
     ubuntu2.vm.hostname = "ubuntu2"
     ubuntu2.vm.network "private_network", ip: "192.168.56.102"
+    ubuntu2.vm.network "forwarded_port", guest: 5901, host: 5902
   end
 end
